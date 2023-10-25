@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Get references to the two SVG images
-    const mainImage = document.getElementById("main-image");
+    const mainImage = document.getElementById("home-image");
     const secondImage = document.getElementById("second-image");
     const switchTrigger = document.getElementById("switch-trigger");
 
@@ -31,4 +31,13 @@ function MyFadeFunction(opacity) {
     }
     fade();
 }
+
+const audio = document.getElementById("hover-sound");
+const highlightElements = document.querySelectorAll(".highlight");
+
+highlightElements.forEach((element) => {
+    element.addEventListener("mouseenter", () => {
+        audio.play();
+    });
+});
 

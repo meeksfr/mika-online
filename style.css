@@ -4,6 +4,7 @@ body {
 }
 
 #main {
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,12 +12,43 @@ body {
     flex-direction: column;
 }
 
+#contents-container{
+    display: inline-block;
+}
+
 svg {
-    padding-top: 1.5rem;
-    max-height: 80vh;
+    margin-top: 0.5rem;
+    height: 77vh;
     background-repeat: no-repeat;
     background-size: cover;
     transition: opacity 0.5s ease;
+    border-style: groove; 
+    border-width: 1rem;
+}
+
+#buttons {
+    background-color: rgb(62, 64, 78);
+    height: 17vh;
+    margin-bottom: 0.5rem;
+    border-style: groove; 
+    border-width: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.icon {
+    margin: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon img {
+    max-height: 14vh;
+    max-width: 14vh;
+    border-style: groove; 
+    border-width: 0.5rem;
+    
 }
 
 .fade-out {
@@ -37,12 +69,11 @@ svg {
 
 
 .highlight:hover {
-    filter: url(#trans-shadow);
+    filter: url(#highlight-shadow);
     /*filter: drop-shadow(0rem 0rem 20rem white);*/
 }
 
 /* Reset the filter when not hovering */
-.rect[filter="url(#trans-shadow)"] {
+.rect[filter="url(#highlight-shadow)"] {
     filter: none;
 }
-

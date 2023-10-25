@@ -12,17 +12,17 @@
 </head>
 <body>
     <div id="main">
-
-        <svg id="main-image" class="fade-in show" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3353 3088">
+        <div id="contents-container">
+        <svg id="home-image" class="fade-in show" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3353 3088">
             <defs>
-                <filter id="trans-shadow">
+                <filter id="highlight-shadow">
                     <feColorMatrix type="matrix" values="1 0 0 0 0 
-                                                         0 1 0 0 0 
-                                                         0 0 1 0 0 
-                                                         0 0 0 100 0"
+                                                        0 1 0 0 0 
+                                                        0 0 1 0 0 
+                                                        0 0 0 100 0"
                         result="boostedInput" />
         
-                    <feGaussianBlur stdDeviation="30" />
+                    <feGaussianBlur stdDeviation="35" />
                     <feComposite operator="out" in2="boostedInput" />
                 </filter>
             </defs>
@@ -32,20 +32,40 @@
                 <rect class="highlight" x="1425" y="1781" fill="white" fill-opacity="0.01" width="532" height="1289"></rect>
             </a>
             <a xlink:href="#">
-              <rect class="highlight" x="0" y="419" fill="#fff" fill-opacity="0.01" width="1044" height="1066"></rect>
+            <rect class="highlight" x="0" y="419" fill="#fff" fill-opacity="0.01" width="1044" height="1066"></rect>
             </a>
             <a id="switch-trigger" xlink:href="#">
-              <rect class="highlight" x="2614" y="860" fill="#fff" fill-opacity="0.01" width="739" height="714"></rect>
+            <rect class="highlight" x="2614" y="860" fill="#fff" fill-opacity="0.01" width="739" height="714"></rect>
             </a>
-          </svg>
+        </svg>
 
-          <svg id="second-image" class="fade-out hide" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3353 3088">
+        <svg id="second-image" class="fade-out hide" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3353 3088">
             <image width="3353" height="3088" xlink:href="./images/subwaylight-sqr.JPG"></image> <a xlink:href="#">
-              <rect class="highlight" x="1837" y="1582" fill="#fff" fill-opacity="0.01" width="940" height="629"></rect>
+            <rect class="highlight" x="1837" y="1582" fill="#fff" fill-opacity="0.01" width="940" height="629"></rect>
             </a>
-          </svg>
+        </svg>
 
+        <div id="buttons">
+            <div class="icon">
+                <img src="/icons/door-icon.png" alt="">
+            </div>
+            <div class="icon">
+                <img src="/icons/computer-icon.png" alt="">
+            </div>
+            <div class="icon">
+                <img src="/icons/stars-icon.png" alt="">
+            </div>
+            <div class="icon">
+                <img src="/icons/music-icon.png" alt="">
+            </div>
+        </div>
     </div>
+        
+    </div>
+    <audio id="hover-sound">
+        <source src="./sounds/menu-hover.mp3"></source>
+        <source src="./sounds/menu-hover.ogg"></source>
+    </audio>
     
     <script src="./app.js"></script>
 </body>
