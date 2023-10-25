@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    flex-direction: column;
+}
+
+svg {
+    padding-top: 1.5rem;
+    max-height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: opacity 0.5s ease;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.show {
+    display: flex;
+}
+
+.hide {
+    display: none;
+}
+
+
+.highlight:hover {
+    filter: url(#trans-shadow);
+    /*filter: drop-shadow(0rem 0rem 20rem white);*/
+}
+
+/* Reset the filter when not hovering */
+.rect[filter="url(#trans-shadow)"] {
+    filter: none;
+}
+
