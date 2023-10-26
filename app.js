@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let previousPage;
 
     const back = document.getElementById("back");
+    const cs = document.getElementById("cs");
+    const bio = document.getElementById("bio");
+    const music = document.getElementById("music");
 
     //back
     back.addEventListener("click", function() {
@@ -24,6 +27,27 @@ document.addEventListener("DOMContentLoaded", function () {
         previousPage = previousPageStack.pop();
         GoToPage(currentPage, previousPage);
         currentPage = previousPage;
+    })
+
+    //computer
+    cs.addEventListener("click", function() {
+        previousPageStack = [home]
+        GoToPage(currentPage, citylights);
+        currentPage = citylights;
+    })
+
+    //bio
+    bio.addEventListener("click", function() {
+        previousPageStack = [home, window]
+        GoToPage(currentPage, face);
+        currentPage = face;
+    })
+
+    //music
+    music.addEventListener("click", function() {
+        previousPageStack = [home, cybersecurity]
+        GoToPage(currentPage, cctv);
+        currentPage = cctv;
     })
 
     //cybersecurity
