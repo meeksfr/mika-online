@@ -73,8 +73,21 @@ svg {
 }
 
 .text{
+    margin-top: 1rem;
     margin-left: 3rem;
     margin-right: 3rem;
+}
+
+.text span {
+    opacity: 0;
+}
+
+.text span.revealed {
+    opacity: 1;
+}
+
+.text span.red {
+    color: red;
 }
 
 .textbox:hover{

@@ -21,12 +21,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const bio = document.getElementById("bio");
     const music = document.getElementById("music");
 
+    const cctvTextContainer = document.getElementById("cctv-textcontainer");
+    const cctvText = document.getElementById("cctv-text");
+
     //back
     back.addEventListener("click", function() {
         if (previousPageStack.length === 0) {previousPageStack.push(home)}
         previousPage = previousPageStack.pop();
         GoToPage(currentPage, previousPage);
         currentPage = previousPage;
+        CleanupTextBoxes([cctvTextContainer]);
+        removeAllCharacters();
     })
 
     //computer
@@ -83,6 +88,11 @@ document.addEventListener("DOMContentLoaded", function () {
         GoToPage(cybersecurity,cctv);
         currentPage = cctv;
         previousPageStack.push(cybersecurity);
+
+        setTimeout(() => {
+            cctvTextContainer.classList.remove("hide");
+            textboxHandler("cctv", cctvText);
+        }, 1500);
     });
 });
 
@@ -119,6 +129,77 @@ function GoToPage(currentPage, destinationPage){
     }, 500);
 }
 
+function CleanupTextBoxes(textboxes){
+    textboxes.forEach((element) => {
+        if (!element.classList.contains("hide"))
+            {element.classList.add("hide")}
+    });
+}
+
+function revealOneCharacter(list){
+    let next = list.splice(0, 1)[0];
+    next.span.classList.add("revealed");
+
+    let delay = next.isSpace ? 0 : next.delayAfter;
+
+    if (list.length>0) {
+        setTimeout(function(){
+            revealOneCharacter(list);
+        }, delay)
+    }
+}
+
+function removeAllCharacters(){
+    let oldText = document.querySelectorAll(".removeOnExit");
+    oldText.forEach((element) => {
+        element.remove();
+    })
+}
+
+function textboxHandler(page, textbox){
+    const speeds = {
+        pause: 200,
+        slow: 80,
+        normal: 50,
+        fast: 20
+    }
+
+    if (page === "cctv"){
+        console.log("dsafsafdsfda");
+        const cctvTextLines = [
+            {string: "MIKA: Hey!", speed: speeds.normal},
+            {string: "test tes tsetesttse set", speed: speeds.normal},
+            {string: "line3line3 dfsafahkb", speed: speeds.slow},
+            {string: "line3line3 dfsfsfassaasafahkb", speed: speeds.fast},
+        ]
+        
+        let cctvCharacters = [];
+        cctvTextLines.forEach((line, index) => {
+    
+            if (index !== 0 && index < cctvTextLines.length-1){
+                let linebreak = document.createElement("br");
+                linebreak.classList.add("removeOnExit")
+                textbox.appendChild(linebreak);
+            }
+        
+            line.string.split("").forEach(character =>{
+                let span = document.createElement("span");
+                span.textContent = character;
+                span.classList.add("removeOnExit");
+                textbox.appendChild(span);
+                cctvCharacters.push({
+                    span: span,
+                    isSpace: character === " ",
+                    delayAfter: line.speed,
+                    classes: line.classes || []
+                })
+            })
+        })
+        revealOneCharacter(cctvCharacters);
+
+    }
+}
+
 const audio = document.getElementById("hover-sound");
 const highlightElements = document.querySelectorAll(".click");
 
@@ -127,4 +208,3 @@ highlightElements.forEach((element) => {
         audio.play();
     });
 });
-
