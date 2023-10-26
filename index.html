@@ -13,55 +13,75 @@
 <body>
     <div id="main">
         <div id="contents-container">
-        <svg id="home" class="fade-in show" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3353 3088">
-            <defs>
-                <filter id="highlight-shadow">
-                    <feColorMatrix type="matrix" values="1 0 0 0 0 
-                                                        0 1 0 0 0 
-                                                        0 0 1 0 0 
-                                                        0 0 0 100 0"
-                        result="boostedInput" />
+            <div id="home-div">
+                <!--0. home-->
+                <svg id="home" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3353 3088">
+                    <defs>
+                        <filter id="highlight-shadow">
+                            <feColorMatrix type="matrix" values="1 0 0 0 0 
+                                                                0 1 0 0 0 
+                                                                0 0 1 0 0 
+                                                                0 0 0 100 0"
+                                result="boostedInput" />
+                
+                            <feGaussianBlur stdDeviation="35" />
+                            <feComposite operator="out" in2="boostedInput" />
+                        </filter>
+                    </defs>
+
+                    <image width="3353" height="3088" xlink:href="./images/hero-sqr.JPG"></image> 
+                    <a id="window-trigger" xlink:href="#">
+                        <rect class="highlight click" x="1425" y="1781" fill="white" fill-opacity="0.01" width="532" height="1289"></rect>
+                    </a>
+                    <a id="lights-trigger" xlink:href="#">
+                        <rect class="highlight click" x="0" y="419" fill="#fff" fill-opacity="0.01" width="1044" height="1066"></rect>
+                    </a>
+                    <a id="cyber-trigger" xlink:href="#">
+                        <rect class="highlight click" x="2614" y="860" fill="#fff" fill-opacity="0.01" width="739" height="714"></rect>
+                    </a>
+                </svg>
+            </div>
         
-                    <feGaussianBlur stdDeviation="35" />
-                    <feComposite operator="out" in2="boostedInput" />
-                </filter>
-            </defs>
+            <div id="city-lights-div" class="hide">
+                 <!--1. the outskirts-->
+                <svg id="city-lights" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4372 4032">
+                    <image width="4372" height="4032" xlink:href="./images/light-sqr.JPG"></image>
+                </svg>
+            </div>
 
-            <image width="3353" height="3088" xlink:href="./images/hero-sqr.JPG"></image> 
-            <a id="window-trigger" xlink:href="#">
-                <rect class="highlight click" x="1425" y="1781" fill="white" fill-opacity="0.01" width="532" height="1289"></rect>
-            </a>
-            <a id="lights-trigger" xlink:href="#">
-                <rect class="highlight click" x="0" y="419" fill="#fff" fill-opacity="0.01" width="1044" height="1066"></rect>
-            </a>
-            <a id="cyber-trigger" xlink:href="#">
-                <rect class="highlight click" x="2614" y="860" fill="#fff" fill-opacity="0.01" width="739" height="714"></rect>
-            </a>
-        </svg>
+            <div id="window-div" class="hide">
+                <!--2. downtown-->
+                <svg id="window" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4372 4032">
+                    <image width="4372" height="4032" xlink:href="./images/window-sqr.JPG"></image> 
+                    <a id="selfie-trigger" xlink:href="#">
+                    <rect class="highlight click" x="1661" y="11" fill="#fff" fill-opacity="0.01" width="662" height="782"></rect>
+                    </a>
+                </svg>
+            </div>
 
-        <svg id="city-lights" class="fade-out hide" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4372 4032">
-            <image width="4372" height="4032" xlink:href="./images/light-sqr.JPG"></image>
-        </svg>
+            <div id="face-div" class="hide" >
+                <!--2.1. downtown mirrors-->
+                <svg id="face" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4373 4032">
+                    <image width="4373" height="4032" xlink:href="./images/face-sqr.JPG"></image>
+                </svg>
+            </div>
+            
+            <div id="cybersecurity-div" class="hide" >   
+                <!--3. underworld-->
+                <svg id="cybersecurity" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3353 3088">
+                    <image width="3353" height="3088" xlink:href="./images/subwaylight-sqr.JPG"></image> 
+                    <a id="cctv-trigger" xlink:href="#">
+                        <rect class="highlight click" x="1837" y="1582" fill="#fff" fill-opacity="0.01" width="940" height="629"></rect>
+                    </a>
+                </svg>
+            </div>
 
-        <svg id="window" class="fade-out hide" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4372 4032">
-            <image width="4372" height="4032" xlink:href="./images/window-sqr.JPG"></image> <a xlink:href="#">
-              <rect class="highlight click" x="1661" y="11" fill="#fff" fill-opacity="0.01" width="662" height="782"></rect>
-            </a>
-        </svg>
-
-        <svg id="cybersecurity" class="fade-out hide" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3353 3088">
-            <image width="3353" height="3088" xlink:href="./images/subwaylight-sqr.JPG"></image> <a xlink:href="#">
-                <rect class="highlight click" x="1837" y="1582" fill="#fff" fill-opacity="0.01" width="940" height="629"></rect>
-            </a>
-        </svg>
-
-        <svg id="face" class="fade-out hide" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4373 4032">
-            <image width="4373" height="4032" xlink:href="./images/face-sqr.JPG"></image>
-        </svg>
-
-        <svg id="cctv" class="fade-out hide" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3166 2919">
-            <image class="highlight click" width="3166" height="2919" xlink:href="./images/subself-sqr.JPG"></image>
-        </svg>
+            <div id="cctv-div" class="hide" >
+                <!--3.1. underworld cameras-->
+                <svg id="cctv" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3166 2919">
+                    <image width="3166" height="2919" xlink:href="./images/subself-sqr.JPG"></image>
+                </svg>
+            </div>
 
         <div id="buttons">
             <div id="back" class="icon click">
@@ -81,8 +101,8 @@
         
     </div>
     <audio id="hover-sound">
-        <source src="./sounds/menu-hover.mp3"></source>
-        <source src="./sounds/menu-hover.ogg"></source>
+        <source src="./sounds/real-menu-hover.mp3"></source>
+        <source src="./sounds/real-menu-hover.ogg"></source>
     </audio>
     
     <script src="./app.js"></script>

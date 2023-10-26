@@ -55,18 +55,6 @@ svg {
     border-color: gray;
 }
 
-.fade-out {
-    opacity: 0;
-}
-
-.fade-in {
-    opacity: 1;
-}
-
-.show {
-    display: flex;
-}
-
 .hide {
     display: none;
 }

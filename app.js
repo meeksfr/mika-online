@@ -1,12 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const home = document.getElementById("home");
-    const cybersecurity = document.getElementById("cybersecurity");
-    const citylights = document.getElementById("city-lights");
-    const window = document.getElementById("window");
+    const home = document.getElementById("home-div");
+    const cybersecurity = document.getElementById("cybersecurity-div");
+    const citylights = document.getElementById("city-lights-div");
+    const window = document.getElementById("window-div");
+    const face = document.getElementById("face-div");
+    const cctv = document.getElementById("cctv-div");
 
     const cyberTrigger = document.getElementById("cyber-trigger");
     const lightsTrigger = document.getElementById("lights-trigger");
     const windowTrigger = document.getElementById("window-trigger");
+    const selfieTrigger = document.getElementById("selfie-trigger");
+    const cctvTrigger = document.getElementById("cctv-trigger");
 
     let currentPage = home;
     let previousPageStack = [];
@@ -18,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
     back.addEventListener("click", function() {
         if (previousPageStack.length === 0) {previousPageStack.push(home)}
         previousPage = previousPageStack.pop();
-        console.log(previousPage);
         GoToPage(currentPage, previousPage);
+        currentPage = previousPage;
     })
 
     //cybersecurity
@@ -42,6 +46,20 @@ document.addEventListener("DOMContentLoaded", function () {
         currentPage = window;
         previousPageStack.push(home);
     });
+
+    //me
+    selfieTrigger.addEventListener("click", function () {
+        GoToPage(window,face);
+        currentPage = face;
+        previousPageStack.push(window);
+    });
+
+    //cctv
+    cctvTrigger.addEventListener("click", function () {
+        GoToPage(cybersecurity,cctv);
+        currentPage = cctv;
+        previousPageStack.push(cybersecurity);
+    });
 });
 
 function FadeIn(newImg) {
@@ -56,18 +74,25 @@ function FadeIn(newImg) {
     fade();
 }
 
-function GoToPage(currentPage, destinationPage){
-    //fade current
-    currentPage.classList.remove("fade-in")
-    currentPage.classList.add("fade-out");
+function FadeOut(newImg) {
+    opacity = 1;
+    function fade() {
+        if (opacity > 0) {
+            opacity -= 0.05;
+            newImg.style.opacity = opacity;
+            setTimeout(fade, 15);
+        }
+    }
+    fade();
+}
 
+function GoToPage(currentPage, destinationPage){
+    FadeOut(currentPage);
     setTimeout(() => {
         currentPage.classList.add("hide")
         destinationPage.classList.remove("hide")
-        destinationPage.classList.add("show")
         FadeIn(destinationPage)
-    }, 400);
-
+    }, 500);
 }
 
 const audio = document.getElementById("hover-sound");
