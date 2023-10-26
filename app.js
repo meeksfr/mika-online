@@ -1,39 +1,77 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Get references to the two SVG images
-    const mainImage = document.getElementById("home-image");
-    const secondImage = document.getElementById("second-image");
-    const switchTrigger = document.getElementById("switch-trigger");
+    const home = document.getElementById("home");
+    const cybersecurity = document.getElementById("cybersecurity");
+    const citylights = document.getElementById("city-lights");
+    const window = document.getElementById("window");
 
-    // Add a click event listener to the trigger area
-    switchTrigger.addEventListener("click", function () {
-        // Toggle fade-in and fade-out classes
-        mainImage.classList.remove("fade-in")
-        mainImage.classList.add("fade-out");
+    const cyberTrigger = document.getElementById("cyber-trigger");
+    const lightsTrigger = document.getElementById("lights-trigger");
+    const windowTrigger = document.getElementById("window-trigger");
 
-        // Delay showing the second image
-        setTimeout(() => {
-            mainImage.classList.add("hide")
-            secondImage.classList.remove("hide")
-            secondImage.classList.add("show")
-            
-            MyFadeFunction(0)
-        }, 400); // Adjust the delay to match the transition duration
+    let currentPage = home;
+    let previousPageStack = [];
+    let previousPage;
+
+    const back = document.getElementById("back");
+
+    //back
+    back.addEventListener("click", function() {
+        if (previousPageStack.length === 0) {previousPageStack.push(home)}
+        previousPage = previousPageStack.pop();
+        console.log(previousPage);
+        GoToPage(currentPage, previousPage);
+    })
+
+    //cybersecurity
+    cyberTrigger.addEventListener("click", function () {
+        GoToPage(home,cybersecurity);
+        currentPage = cybersecurity;
+        previousPageStack.push(home);
+    });
+
+    //city lights
+    lightsTrigger.addEventListener("click", function () {
+        GoToPage(home,citylights);
+        currentPage = citylights;
+        previousPageStack.push(home);
+    });
+
+    //window
+    windowTrigger.addEventListener("click", function () {
+        GoToPage(home,window);
+        currentPage = window;
+        previousPageStack.push(home);
     });
 });
 
-function MyFadeFunction(opacity) {
+function FadeIn(newImg) {
+    opacity = 0;
     function fade() {
         if (opacity < 1) {
             opacity += 0.05;
-            document.getElementById('second-image').style.opacity = opacity;
+            newImg.style.opacity = opacity;
             setTimeout(fade, 15);
         }
     }
     fade();
 }
 
+function GoToPage(currentPage, destinationPage){
+    //fade current
+    currentPage.classList.remove("fade-in")
+    currentPage.classList.add("fade-out");
+
+    setTimeout(() => {
+        currentPage.classList.add("hide")
+        destinationPage.classList.remove("hide")
+        destinationPage.classList.add("show")
+        FadeIn(destinationPage)
+    }, 400);
+
+}
+
 const audio = document.getElementById("hover-sound");
-const highlightElements = document.querySelectorAll(".highlight");
+const highlightElements = document.querySelectorAll(".click");
 
 highlightElements.forEach((element) => {
     element.addEventListener("mouseenter", () => {

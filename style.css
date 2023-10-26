@@ -30,7 +30,7 @@ svg {
     background-color: rgb(62, 64, 78);
     height: 17vh;
     margin-bottom: 0.5rem;
-    border-style: groove; 
+    border-style: groove;
     border-width: 1rem;
     display: flex;
     align-items: center;
@@ -47,8 +47,12 @@ svg {
     max-height: 14vh;
     max-width: 14vh;
     border-style: groove; 
-    border-width: 0.5rem;
-    
+    border-width: 1rem;
+    border-color: white;
+}
+
+.icon img:hover{
+    border-color: gray;
 }
 
 .fade-out {
