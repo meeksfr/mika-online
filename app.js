@@ -165,7 +165,6 @@ function textboxHandler(page, textbox){
     }
 
     if (page === "cctv"){
-        console.log("dsafsafdsfda");
         const cctvTextLines = [
             {string: "MIKA: Hey!", speed: speeds.normal},
             {string: "test tes tsetesttse set", speed: speeds.normal},

@@ -70,6 +70,8 @@ svg {
     border-style:double;
     border-width: 2rem;
     border-color: rgb(62, 64, 78);
+    display: flex;
+    /* justify-content: space-between; */
 }
 
 .text{
@@ -90,8 +92,32 @@ svg {
     color: red;
 }
 
+.next-arrow {
+    margin-top: 20rem;
+    margin-right: 2rem;
+    opacity: 0.6;
+}
+
+.next-arrow:after {
+    content:'';
+    width: 0;
+    height: 0;
+    border-top: 2rem solid;
+    border-left: 2rem solid transparent;
+    border-right: 2rem solid transparent;
+}
+
 .textbox:hover{
     border-color: gray;
+}
+
+.textbox:hover .next-arrow{
+    opacity: 1;
+    color: rgb(147, 11, 11);
+}
+
+.textbox:hover .text span{
+    color: gray;
 }
 
 .icon {
