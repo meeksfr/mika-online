@@ -59,15 +59,15 @@ svg {
 }
 
 #cctv-textcontainer {
-    bottom: 2rem;
+    bottom: 0.25vh;
 }
 
 #face-textcontainer {
-    top: 2rem;
+    top: 0.25vh;
 }
 
 #lights-textcontainer {
-    top: 2rem;
+    top: 0.25vh;
 }
 
 .textbox{
@@ -186,8 +186,8 @@ svg {
         filter: url(#highlight-shadow);
     }
     svg {
-        max-height: 50vh;
-        max-width: 95vw;
+        max-height: 80vmin;
+        max-width: 95vmin;
         min-inline-size: 80%;
         background-repeat: no-repeat;
         background-size: cover;
@@ -223,7 +223,7 @@ svg {
 
     .textbox{
         font-family: pkmn;
-        font-size: calc(0.05rem + 1vh + 0.1vw);
+        font-size: calc(0.025rem + 0.7vh + 0.05vw);
         width: 80%;
         height: 70%;
         background-color: rgb(221, 221, 221);
