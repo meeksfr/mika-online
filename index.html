@@ -60,6 +60,20 @@
             <div id="window-div" class="hide">
                 <!--2. downtown-->
                 <svg id="window" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4372 4032">
+                    <!--need to redefine the filter in each svg for mobile compatibility-->
+                    <defs>
+                        <filter id="highlight-shadow">
+                            <feColorMatrix type="matrix" values="1 0 0 0 0 
+                                                                0 1 0 0 0 
+                                                                0 0 1 0 0 
+                                                                0 0 0 100 0"
+                                result="boostedInput" />
+                
+                            <feGaussianBlur stdDeviation="35" />
+                            <feComposite operator="out" in2="boostedInput" />
+                        </filter>
+                    </defs>
+
                     <image width="4372" height="4032" xlink:href="./images/window-sqr.JPG"></image> 
                     <a id="selfie-trigger" xlink:href="#">
                     <rect class="highlight click" x="1661" y="11" fill="#fff" fill-opacity="0.01" width="662" height="782"></rect>
@@ -85,6 +99,20 @@
             <div id="cybersecurity-div" class="hide" >   
                 <!--3. underworld-->
                 <svg id="cybersecurity" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3353 3088">
+                    <!--need to redefine the filter in each svg for mobile compatibility-->
+                    <defs>
+                        <filter id="highlight-shadow">
+                            <feColorMatrix type="matrix" values="1 0 0 0 0 
+                                                                0 1 0 0 0 
+                                                                0 0 1 0 0 
+                                                                0 0 0 100 0"
+                                result="boostedInput" />
+                
+                            <feGaussianBlur stdDeviation="35" />
+                            <feComposite operator="out" in2="boostedInput" />
+                        </filter>
+                    </defs>
+
                     <image width="3353" height="3088" xlink:href="./images/subwaylight-sqr.JPG"></image> 
                     <a id="cctv-trigger" xlink:href="#">
                         <rect class="highlight click" x="1837" y="1582" fill="#fff" fill-opacity="0.01" width="940" height="629"></rect>

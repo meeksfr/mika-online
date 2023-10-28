@@ -172,7 +172,6 @@ svg {
     display: none;
 }
 
-
 .highlight:hover {
     filter: url(#highlight-shadow);
 }
@@ -187,12 +186,67 @@ svg {
         filter: url(#highlight-shadow);
     }
     svg {
-        max-height: 70vh;
-        max-width: 70vw;
+        max-height: 50vh;
+        max-width: 95vw;
+        min-inline-size: 80%;
         background-repeat: no-repeat;
         background-size: cover;
         transition: opacity 0.5s ease;
         border-style: groove; 
         border-width: 4px;
+    }
+    .textbox:hover{
+        border-color: inherit;
+    }
+
+    .textbox:hover .text span{
+        color: inherit;
+    }
+
+    .icon img {
+        max-height: 8vh;
+        max-width: 8vh;
+        border-style: groove; 
+        border-width: 4px;
+        border-color: white;
+    }
+
+    #buttons {
+        background-color: rgb(62, 64, 78);
+        max-height: 12vh;
+        border-style: groove;
+        border-width: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .textbox{
+        font-family: pkmn;
+        font-size: calc(0.05rem + 1vh + 0.1vw);
+        width: 80%;
+        height: 70%;
+        background-color: rgb(221, 221, 221);
+        border-radius: 3%;
+        border-style:double;
+        border-width: 8px;
+        border-color: rgb(62, 64, 78);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .next-arrow {
+        margin-top: 8vh;
+        margin-right: 0.5rem;
+        opacity: 0.6;
+    }
+
+    .next-arrow:after {
+        content:'';
+        width: 0;
+        height: 0;
+        border-top: calc(0.05rem + 1vh) solid;
+        border-left: calc(0.05rem + 1vh) solid transparent;
+        border-right: calc(0.05rem + 1vh) solid transparent;
     }
 }
