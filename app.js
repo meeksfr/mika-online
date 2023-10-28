@@ -316,7 +316,7 @@ function textboxHandler(page, textbox, index, container){
         case "about":
             textLines = [
                 [
-                    {string: "MIKA: I hope you're enjoying your time here!", speed: speeds.normal},
+                    {string: "MIKA: I hope you're enjoying your time here! ", speed: speeds.normal},
                     {string: "I made this dimension with vanilla html/css/js, and a small bit of artistic taste...", speed: speeds.normal}
                 ],
                 [
