@@ -22,7 +22,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const music = document.getElementById("music");
 
     const cctvTextContainer = document.getElementById("cctv-textcontainer");
+    const cctvTextbox = document.getElementById("cctv-textbox");
     const cctvText = document.getElementById("cctv-text");
+
+    let textIDX;
+    const textAlert = document.getElementById("text-alert-sound");
+    textAlert.volume = 0.2;
 
     //back
     back.addEventListener("click", function() {
@@ -30,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         previousPage = previousPageStack.pop();
         GoToPage(currentPage, previousPage);
         currentPage = previousPage;
-        CleanupTextBoxes([cctvTextContainer]);
+        CleanupTextContainers([cctvTextContainer]);
         removeAllCharacters();
     })
 
@@ -90,10 +95,25 @@ document.addEventListener("DOMContentLoaded", function () {
         previousPageStack.push(cybersecurity);
 
         setTimeout(() => {
+            textIDX = 0;
             cctvTextContainer.classList.remove("hide");
-            textboxHandler("cctv", cctvText);
+            textAlert.play();
+            textboxHandler("music", cctvText, textIDX, cctvTextContainer);
+            textIDX += 1;
         }, 1500);
     });
+
+    const textAudio = document.getElementById("next-text-sound");
+    textAudio.volume = 0.1;
+
+    cctvTextbox.addEventListener("click", function(event) {
+        if (event.target.tagName.toLowerCase() !== 'a') {
+            textAudio.play();
+            removeAllCharacters();
+            textboxHandler("music", cctvText, textIDX, cctvTextContainer);
+            textIDX += 1;}
+        event.stopPropagation();
+    })
 });
 
 function FadeIn(newImg) {
@@ -129,8 +149,8 @@ function GoToPage(currentPage, destinationPage){
     }, 500);
 }
 
-function CleanupTextBoxes(textboxes){
-    textboxes.forEach((element) => {
+function CleanupTextContainers(container){
+    container.forEach((element) => {
         if (!element.classList.contains("hide"))
             {element.classList.add("hide")}
     });
@@ -139,6 +159,9 @@ function CleanupTextBoxes(textboxes){
 function revealOneCharacter(list){
     let next = list.splice(0, 1)[0];
     next.span.classList.add("revealed");
+    next.classes.forEach((c) => {
+        next.span.classList.add(c);
+    })
 
     let delay = next.isSpace ? 0 : next.delayAfter;
 
@@ -156,54 +179,122 @@ function removeAllCharacters(){
     })
 }
 
-function textboxHandler(page, textbox){
+function textboxHandler(page, textbox, index, container){
     const speeds = {
-        pause: 200,
-        slow: 80,
-        normal: 50,
-        fast: 20
+        pause: 700,
+        slow: 90,
+        normal: 40,
+        fast: 10
     }
+    let textLines;
 
-    if (page === "cctv"){
-        const cctvTextLines = [
-            {string: "MIKA: Hey!", speed: speeds.normal},
-            {string: "test tes tsetesttse set", speed: speeds.normal},
-            {string: "line3line3 dfsafahkb", speed: speeds.slow},
-            {string: "line3line3 dfsfsfassaasafahkb", speed: speeds.fast},
-        ]
+    switch(page){
+        case "music":
+            textLines = [
+                [
+                    {string: "MIKA: Hey!{", speed: speeds.normal},
+                    {string: "test tes tsetesttse set{", speed: speeds.normal},
+                    {string: "line3line3 dfsafahkb", speed: speeds.slow},
+                    {string: "line3line3", speed: speeds.fast, classes: ["red"], link: "https://personalprotocol.net/"},
+                    {string: "...", speed: speeds.pause}
+                ],
+                [
+                    {string: "number2{", speed: speeds.normal},
+                    {string: "tasdhbadsbhfdabktse set{", speed: speeds.normal},
+                    {string: "line3safdjkbfahkb", speed: speeds.slow},
+                    {string: "line3fsdabhje3", speed: speeds.fast},
+                    {string: "...", speed: speeds.pause}
+                ]];
+                break;
+        case "about":
+            textLines = [
+                [
+                    {string: "MIKA: Hey!{", speed: speeds.normal},
+                    {string: "test tes tsetesttse set{", speed: speeds.normal},
+                    {string: "line3line3 dfsafahkb", speed: speeds.slow},
+                    {string: "line3line3", speed: speeds.fast},
+                    {string: "...", speed: speeds.pause}
+                ],
+                [
+                    {string: "number2{", speed: speeds.normal},
+                    {string: "tasdhbadsbhfdabktse set{", speed: speeds.normal},
+                    {string: "line3safdjkbfahkb", speed: speeds.slow},
+                    {string: "line3fsdabhje3", speed: speeds.fast},
+                    {string: "...", speed: speeds.pause}
+                ]]
+                break;
+        case "computer":
+            textLines = [
+                [
+                    {string: "MIKA: Hey!{", speed: speeds.normal},
+                    {string: "test tes tsetesttse set{", speed: speeds.normal},
+                    {string: "line3line3 dfsafahkb", speed: speeds.slow},
+                    {string: "line3line3", speed: speeds.fast},
+                    {string: "...", speed: speeds.pause}
+                ],
+                [
+                    {string: "number2{", speed: speeds.normal},
+                    {string: "tasdhbadsbhfdabktse set{", speed: speeds.normal},
+                    {string: "line3safdjkbfahkb", speed: speeds.slow},
+                    {string: "line3fsdabhje3", speed: speeds.fast},
+                    {string: "...", speed: speeds.pause}
+                ]]
+                break;
+        default:
+            textLines = [
+                [
+                    {string: "MIKA: Something's wrong", speed: speeds.slow},
+                    {string: "...{", speed: speeds.pause},
+                    {string: "Try reloading the page please", speed: speeds.normal}
+                ]]
+        }
         
-        let cctvCharacters = [];
-        cctvTextLines.forEach((line, index) => {
+    if (index > textLines.length - 1){
+        removeAllCharacters();
+        CleanupTextContainers([container]);
+    }
+        
+    else{
+        let characters = [];
+        textLines[index].forEach(line => {
     
-            if (index !== 0 && index < cctvTextLines.length-1){
-                let linebreak = document.createElement("br");
-                linebreak.classList.add("removeOnExit")
-                textbox.appendChild(linebreak);
-            }
-        
             line.string.split("").forEach(character =>{
-                let span = document.createElement("span");
-                span.textContent = character;
-                span.classList.add("removeOnExit");
-                textbox.appendChild(span);
-                cctvCharacters.push({
-                    span: span,
-                    isSpace: character === " ",
-                    delayAfter: line.speed,
-                    classes: line.classes || []
-                })
+                if (character === "{"){
+                    let linebreak = document.createElement("br");
+                    linebreak.classList.add("removeOnExit")
+                    textbox.appendChild(linebreak);
+                }
+                else{
+                    let span = document.createElement("span");
+                    if (line.link) {
+                        let a = document.createElement("a");
+                        a.href = line.link;
+                        a.textContent = character;
+                        a.target = "_blank"
+                        span.appendChild(a);
+                    } else {
+                        span.textContent = character;
+                    }
+                    span.classList.add("removeOnExit");
+                    textbox.appendChild(span);
+                    characters.push({
+                        span: span,
+                        isSpace: character === " ",
+                        delayAfter: line.speed,
+                        classes: line.classes || []
+                    })
+                }
             })
         })
-        revealOneCharacter(cctvCharacters);
-
+        revealOneCharacter(characters);
     }
 }
 
-const audio = document.getElementById("hover-sound");
+const clickAudio = document.getElementById("hover-sound");
 const highlightElements = document.querySelectorAll(".click");
 
 highlightElements.forEach((element) => {
     element.addEventListener("mouseenter", () => {
-        audio.play();
+        clickAudio.play();
     });
 });

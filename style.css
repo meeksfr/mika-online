@@ -7,6 +7,7 @@
 body {
     margin: 0;
     padding: 0;
+    min-height: fit-content;
 }
 
 #main {
@@ -62,7 +63,7 @@ svg {
 
 .textbox{
     font-family: pkmn;
-    font-size: 3rem;
+    font-size: calc(0.1rem + 1.5vh + 0.1vw);
     width: 80%;
     height: 70%;
     background-color: rgb(221, 221, 221);
@@ -71,7 +72,7 @@ svg {
     border-width: 2rem;
     border-color: rgb(62, 64, 78);
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
 }
 
 .text{
@@ -93,7 +94,7 @@ svg {
 }
 
 .next-arrow {
-    margin-top: 20rem;
+    margin-top: 13vh;
     margin-right: 2rem;
     opacity: 0.6;
 }
@@ -102,9 +103,9 @@ svg {
     content:'';
     width: 0;
     height: 0;
-    border-top: 2rem solid;
-    border-left: 2rem solid transparent;
-    border-right: 2rem solid transparent;
+    border-top: calc(0.1rem + 1.5vh) solid;
+    border-left: calc(0.1rem + 1.5vh) solid transparent;
+    border-right: calc(0.1rem + 1.5vh) solid transparent;
 }
 
 .textbox:hover{
