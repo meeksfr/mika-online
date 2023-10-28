@@ -297,7 +297,7 @@ function textboxHandler(page, textbox, index, container){
                 [
                     {string: "I write stuff that I like -- I wish I could describe it better", speed: speeds.normal},
                     {string: "...", speed: speeds.pause},
-                    {string: "but if words did the trick, music wouldn't have sounds. ", speed: speeds.normal},
+                    {string: "but if words did the trick, music wouldn't have sounds.{", speed: speeds.normal},
                     {string: "~Better to be beautiful than good~", speed: speeds.slow}
                 ],
                 [
@@ -316,7 +316,7 @@ function textboxHandler(page, textbox, index, container){
         case "about":
             textLines = [
                 [
-                    {string: "MIKA: I hope you're enjoying your time here!{", speed: speeds.normal},
+                    {string: "MIKA: I hope you're enjoying your time here!", speed: speeds.normal},
                     {string: "I made this dimension with vanilla html/css/js, and a small bit of artistic taste...", speed: speeds.normal}
                 ],
                 [
@@ -348,7 +348,7 @@ function textboxHandler(page, textbox, index, container){
                 [
                     {string: "Most of all, I love learning. ", speed: speeds.slow},
                     {string: "I'm really excited to contribute and learn at a cool tech company with cool people --", speed: speeds.normal},
-                    {string: "if you know of any places like that, please let me know :)", speed: speeds.fast}
+                    {string: "if you know any places like that, please let me know :)", speed: speeds.fast}
                 ],
                 [
                     {string: "I don't mean to ramble", speed: speeds.slow},
