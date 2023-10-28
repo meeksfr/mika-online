@@ -302,11 +302,12 @@ function textboxHandler(page, textbox, index, container){
                 ],
                 [
                     {string: "Find me on ", speed: speeds.normal},
-                    {string: "Spotify, ", speed: speeds.normal, classes: ["green"], link: "https://open.spotify.com/artist/52TGqMiRRL0hADN0JVdAGW?si=xKDh8szIRKOAtJQ060p-Tg"},
-                    {string: "Apple, ", speed: speeds.normal, classes: ["pink"], link: "https://music.apple.com/us/artist/faintstt/1670272276"},
-                    {string: "or ", speed: speeds.normal},
-                    {string: "Soundcloud, ", speed: speeds.normal, classes: ["orange"], link: "https://soundcloud.com/faintstt"},
-                    {string: "as \"faintstt\"!{", speed: speeds.normal},
+                    {string: "Spotify", speed: speeds.normal, classes: ["green"], link: "https://open.spotify.com/artist/52TGqMiRRL0hADN0JVdAGW?si=xKDh8szIRKOAtJQ060p-Tg"},
+                    {string: ", ", speed: speeds.normal},
+                    {string: "Apple", speed: speeds.normal, classes: ["pink"], link: "https://music.apple.com/us/artist/faintstt/1670272276"},
+                    {string: ", or ", speed: speeds.normal},
+                    {string: "Soundcloud", speed: speeds.normal, classes: ["orange"], link: "https://soundcloud.com/faintstt"},
+                    {string: ", as \"faintstt\"!{", speed: speeds.slow},
                     {string: "I also put song breakdowns on ", speed: speeds.normal},
                     {string: "YouTube", speed: speeds.normal, classes: ["red"], link: "https://www.youtube.com/@faintstt"},
                     {string: "!{Thanks sm <3", speed: speeds.slow},
@@ -320,10 +321,10 @@ function textboxHandler(page, textbox, index, container){
                 ],
                 [
                     {string: "Huge shoutout to 8485+beyondthecrag for their ", speed: speeds.normal},
-                    {string: "inspiration/platonic ideal, ", speed: speeds.slow, classes: ["blue"], link: "https://personalprotocol.net/"},
-                    {string: "and huge shoutout to ", speed: speeds.normal},
-                    {string: "Matin ", speed: speeds.slow, classes: ["red"], link: "https://matinsarahi.com/"},
-                    {string: "for putting up with my late night debugging lifelines", speed: speeds.normal}
+                    {string: "inspiration/platonic ideal", speed: speeds.slow, classes: ["blue"], link: "https://personalprotocol.net/"},
+                    {string: ", and huge shoutout to ", speed: speeds.normal},
+                    {string: "Matin", speed: speeds.slow, classes: ["red"], link: "https://matinsarahi.com/"},
+                    {string: " for putting up with my late night debugging lifelines", speed: speeds.normal}
                 ],
                 [
                     {string: "To any and all site participants, I'm thankful you're here", speed: speeds.normal},
@@ -353,8 +354,8 @@ function textboxHandler(page, textbox, index, container){
                     {string: "I don't mean to ramble", speed: speeds.slow},
                     {string: "...", speed: speeds.pause},
                     {string: "if you want to get to know me more efficiently, you can always read my ", speed: speeds.normal},
-                    {string: "resume. ", speed: speeds.slow, classes: ["red"], link: "https://drive.google.com/file/d/1CqxflZihJTzpsZ0RXZWo_hOpzqJYtSX8/view"},
-                    {string: "Thank you again for spending your time with me!!", speed: speeds.normal}
+                    {string: "resume", speed: speeds.slow, classes: ["red"], link: "https://drive.google.com/file/d/1CqxflZihJTzpsZ0RXZWo_hOpzqJYtSX8/view"},
+                    {string: ". Thank you again for spending your time with me!!", speed: speeds.normal}
                 ]
                 ]
                 break;
