@@ -30,7 +30,7 @@ svg {
     background-size: cover;
     transition: opacity 0.5s ease;
     border-style: groove; 
-    border-width: 1rem;
+    border-width: 0.2rem;
 }
 
 #buttons {
@@ -38,7 +38,7 @@ svg {
     height: 17vh;
     margin-bottom: 0.5rem;
     border-style: groove;
-    border-width: 1rem;
+    border-width: 0.2rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -80,16 +80,16 @@ svg {
     background-color: rgb(221, 221, 221);
     border-radius: 3%;
     border-style:double;
-    border-width: 2rem;
+    border-width: 0.4rem;
     border-color: rgb(62, 64, 78);
     display: flex;
     justify-content: space-between;
 }
 
 .text{
-    margin-top: 1rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin-top: 0.2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .text span {
@@ -158,7 +158,7 @@ svg {
     max-height: 14vh;
     max-width: 14vh;
     border-style: groove; 
-    border-width: 1rem;
+    border-width: 0.2rem;
     border-color: white;
 }
 
