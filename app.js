@@ -354,7 +354,7 @@ function textboxHandler(page, textbox, index, container){
                     {string: "I don't mean to ramble", speed: speeds.slow},
                     {string: "...", speed: speeds.pause},
                     {string: "if you want to get to know me more efficiently, you can always read my ", speed: speeds.normal},
-                    {string: "resume", speed: speeds.slow, classes: ["red"], link: "https://drive.google.com/file/d/1GKTJb0BgmEwC9MQzfsJ-S7Jienw5DfuA/view?usp=sharing"},
+                    {string: "resume", speed: speeds.slow, classes: ["red"], link: "https://drive.google.com/file/d/1JovfTYhJwGWVJx0hmIAT6TT2ywP1yNVP/view?usp=sharing"},
                     {string: ". Thank you again for spending your time with me!!", speed: speeds.normal}
                 ]
                 ]
