@@ -278,7 +278,7 @@ function removeAllCharacters(){
 
 function textboxHandler(page, textbox, index, container){
     const speeds = {
-        pause: 500,
+        pause: 300,
         slow: 70,
         normal: 30,
         fast: 15
@@ -346,15 +346,15 @@ function textboxHandler(page, textbox, index, container){
                     {string: "is the best collection of incantations and magic words that I've found to serve these ambitions. ", speed: speeds.normal}
                 ],
                 [
-                    {string: "Most of all, I love learning. ", speed: speeds.slow},
+                    {string: "Most of all, I love learning. ", speed: speeds.fast},
                     {string: "I'm really excited to contribute and learn at a cool tech company with cool people --", speed: speeds.normal},
-                    {string: "if you know any places like that, please let me know :)", speed: speeds.fast}
+                    {string: "if you know any places like that, please let me know :)", speed: speeds.slow}
                 ],
                 [
                     {string: "I don't mean to ramble", speed: speeds.slow},
                     {string: "...", speed: speeds.pause},
                     {string: "if you want to get to know me more efficiently, you can always read my ", speed: speeds.normal},
-                    {string: "resume", speed: speeds.slow, classes: ["red"], link: "https://drive.google.com/file/d/1JovfTYhJwGWVJx0hmIAT6TT2ywP1yNVP/view?usp=sharing"},
+                    {string: "resume", speed: speeds.slow, classes: ["red"], link: "https://drive.google.com/file/d/1Z55Ry0GVi1ZFOrzllCRfADGETFQSIBlH/view?usp=sharing"},
                     {string: ". Thank you again for spending your time with me!!", speed: speeds.normal}
                 ]
                 ]

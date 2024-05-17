@@ -72,7 +72,7 @@ svg {
 
 .textbox{
     font-family: pkmn;
-    font-size: calc(0.1rem + 1.3vh + 0.1vw);
+    font-size: calc(0.1rem + 1.3vh + 0.08vw);
     width: 80%;
     height: 70%;
     background-color: rgb(221, 221, 221);
