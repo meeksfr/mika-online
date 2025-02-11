@@ -3,6 +3,7 @@ let txtRevealing = false;
 let charsToReveal = [];
 
 document.addEventListener("DOMContentLoaded", function () {
+  //page divs
   const home = document.getElementById("home-div");
   const cybersecurity = document.getElementById("cybersecurity-div");
   const citylights = document.getElementById("city-lights-div");
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const face = document.getElementById("face-div");
   const cctv = document.getElementById("cctv-div");
 
+  //on screen clickable navigation triggers
   const cyberTrigger = document.getElementById("cyber-trigger");
   const lightsTrigger = document.getElementById("lights-trigger");
   const windowTrigger = document.getElementById("window-trigger");
@@ -20,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let previousPageStack = [];
   let previousPage;
 
+  //buttons
   const back = document.getElementById("back");
   const cs = document.getElementById("cs");
   const bio = document.getElementById("bio");
@@ -31,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const iconImgs = [csImg, bioImg, musicImg];
 
+  //text containers and textboxes
   const cctvTextContainer = document.getElementById("cctv-textcontainer");
   const cctvTextbox = document.getElementById("cctv-textbox");
   const cctvText = document.getElementById("cctv-text");
@@ -52,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let txtDelay = 1500;
 
-  //back
+  //back button functionality (stack)
   back.addEventListener("click", function () {
     if (previousPageStack.length === 0) {
       previousPageStack.push(home);
@@ -69,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
     clearIcons(iconImgs);
   });
 
-  //computer
+  //computer science button functionality
   cs.addEventListener("click", function () {
     previousPageStack = [home];
     GoToPage(currentPage, citylights);
@@ -92,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, txtDelay);
   });
 
-  //bio
+  //bio button functionality
   bio.addEventListener("click", function () {
     previousPageStack = [home, window];
     GoToPage(currentPage, face);
@@ -115,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, txtDelay);
   });
 
-  //music
+  //music button functionality
   music.addEventListener("click", function () {
     previousPageStack = [home, cybersecurity];
     GoToPage(currentPage, cctv);
@@ -138,14 +142,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }, txtDelay);
   });
 
-  //cybersecurity
+  //cybersecurity nav trigger
   cyberTrigger.addEventListener("click", function () {
     GoToPage(home, cybersecurity);
     currentPage = cybersecurity;
     previousPageStack.push(home);
   });
 
-  //city lights
+  //city lights nav trigger
   lightsTrigger.addEventListener("click", function () {
     GoToPage(home, citylights);
     currentPage = citylights;
@@ -161,14 +165,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }, txtDelay);
   });
 
-  //window
+  //window nav trigger
   windowTrigger.addEventListener("click", function () {
     GoToPage(home, window);
     currentPage = window;
     previousPageStack.push(home);
   });
 
-  //me
+  //me nav trigger
   selfieTrigger.addEventListener("click", function () {
     GoToPage(window, face);
     currentPage = face;
@@ -184,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, txtDelay);
   });
 
-  //cctv
+  //cctv nav trigger
   cctvTrigger.addEventListener("click", function () {
     GoToPage(cybersecurity, cctv);
     currentPage = cctv;
@@ -200,6 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, txtDelay);
   });
 
+  //managing textbox clicking
   cctvTextbox.addEventListener("click", function (event) {
     if (event.target.tagName.toLowerCase() !== "a") {
       textAudio.play();
@@ -246,6 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+//fade functions for smooth image transitions
 function FadeIn(newImg) {
   opacity = 0;
   function fade() {
@@ -270,6 +276,7 @@ function FadeOut(newImg) {
   fade();
 }
 
+//ui management/state clearing functions
 function GoToPage(currentPage, destinationPage) {
   FadeOut(currentPage);
   setTimeout(() => {
@@ -295,6 +302,7 @@ function CleanupTextContainers(container) {
   });
 }
 
+//recursive function to reveal the first character from the list
 function revealOneCharacter(list) {
   charsToReveal = list;
   let next = list.splice(0, 1)[0];
@@ -336,6 +344,7 @@ function removeAllCharacters() {
   });
 }
 
+//main textbox handler, includes definition/instantiation of all text lines
 function textboxHandler(page, textbox, index, container) {
   const speeds = {
     pause: 300,
@@ -527,6 +536,7 @@ function textboxHandler(page, textbox, index, container) {
 
   txtRevealing = true;
 
+  //clean up text box once all lines are finished
   if (index > textLines.length - 1) {
     removeAllCharacters();
     CleanupTextContainers([container]);
@@ -534,11 +544,13 @@ function textboxHandler(page, textbox, index, container) {
     let characters = [];
     textLines[index].forEach((line) => {
       line.string.split("").forEach((character) => {
+        //reserving "{" as a special character for linebreaks
         if (character === "{") {
           let linebreak = document.createElement("br");
           linebreak.classList.add("removeOnExit");
           textbox.appendChild(linebreak);
         } else {
+          //handling link functionality and any other classes (i.e. text colour)
           let span = document.createElement("span");
           if (line.link) {
             let a = document.createElement("a");
@@ -571,6 +583,7 @@ function textboxHandler(page, textbox, index, container) {
   }
 }
 
+//trigger hover sound design
 const clickAudio = document.getElementById("hover-sound");
 const highlightElements = document.querySelectorAll(".click");
 
