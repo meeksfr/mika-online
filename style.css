@@ -72,7 +72,7 @@ svg {
 
 .textbox{
     font-family: pkmn;
-    font-size: 1.4vmin;
+    font-size: 1.5vmin;
     width: 80%;
     height: 70%;
     background-color: rgb(221, 221, 221);
@@ -187,9 +187,9 @@ svg {
         filter: url(#highlight-shadow);
     }
     svg {
-        max-height: 80vmin;
+        max-height: 95vmin;
         max-width: 95vmin;
-        min-inline-size: 80%;
+        min-inline-size: 90%;
         background-repeat: no-repeat;
         background-size: cover;
         transition: opacity 0.5s ease;
@@ -224,9 +224,9 @@ svg {
 
     .textbox{
         font-family: pkmn;
-        font-size: 1.4vmin;
-        width: 80%;
-        height: 70%;
+        font-size: 2vmin;
+        width: 90%;
+        height: 90%;
         background-color: rgb(221, 221, 221);
         border-radius: 3%;
         border-style:double;
