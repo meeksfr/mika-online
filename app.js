@@ -1,3 +1,7 @@
+//global scope vars
+let txtRevealing = false;
+let charsToReveal = [];
+
 document.addEventListener("DOMContentLoaded", function () {
   const home = document.getElementById("home-div");
   const cybersecurity = document.getElementById("cybersecurity-div");
@@ -199,9 +203,14 @@ document.addEventListener("DOMContentLoaded", function () {
   cctvTextbox.addEventListener("click", function (event) {
     if (event.target.tagName.toLowerCase() !== "a") {
       textAudio.play();
-      removeAllCharacters();
-      textboxHandler("music", cctvText, textIDX, cctvTextContainer);
-      textIDX += 1;
+
+      if (txtRevealing) {
+        revealAllCharacters();
+      } else {
+        removeAllCharacters();
+        textboxHandler("music", cctvText, textIDX, cctvTextContainer);
+        textIDX += 1;
+      }
     }
     event.stopPropagation();
   });
@@ -209,9 +218,14 @@ document.addEventListener("DOMContentLoaded", function () {
   faceTextbox.addEventListener("click", function (event) {
     if (event.target.tagName.toLowerCase() !== "a") {
       textAudio.play();
-      removeAllCharacters();
-      textboxHandler("about", faceText, textIDX, faceTextContainer);
-      textIDX += 1;
+
+      if (txtRevealing) {
+        revealAllCharacters();
+      } else {
+        removeAllCharacters();
+        textboxHandler("about", faceText, textIDX, faceTextContainer);
+        textIDX += 1;
+      }
     }
     event.stopPropagation();
   });
@@ -219,9 +233,14 @@ document.addEventListener("DOMContentLoaded", function () {
   lightsTextbox.addEventListener("click", function (event) {
     if (event.target.tagName.toLowerCase() !== "a") {
       textAudio.play();
-      removeAllCharacters();
-      textboxHandler("computer", lightsText, textIDX, lightsTextContainer);
-      textIDX += 1;
+
+      if (txtRevealing) {
+        revealAllCharacters();
+      } else {
+        removeAllCharacters();
+        textboxHandler("computer", lightsText, textIDX, lightsTextContainer);
+        textIDX += 1;
+      }
     }
     event.stopPropagation();
   });
@@ -277,6 +296,7 @@ function CleanupTextContainers(container) {
 }
 
 function revealOneCharacter(list) {
+  charsToReveal = list;
   let next = list.splice(0, 1)[0];
   next.span.classList.add("revealed");
   next.classes.forEach((c) => {
@@ -289,7 +309,24 @@ function revealOneCharacter(list) {
     setTimeout(function () {
       revealOneCharacter(list);
     }, delay);
+  } else {
+    setTimeout(function () {
+      txtRevealing = false;
+    }, 200);
   }
+}
+
+function revealAllCharacters() {
+  charsToReveal.forEach((char) => {
+    char.span.classList.add("revealed");
+    char.classes.forEach((c) => {
+      char.span.classList.add(c);
+    });
+  });
+  charsToReveal = [];
+  setTimeout(function () {
+    txtRevealing = false;
+  }, 200);
 }
 
 function removeAllCharacters() {
@@ -324,7 +361,7 @@ function textboxHandler(page, textbox, index, container) {
         [
           {
             string:
-              "I write stuff that I like -- I wish I could describe it better",
+              "I write the types of songs that I like -- I wish I could describe it better",
             speed: speeds.normal,
           },
           { string: "...", speed: speeds.pause },
@@ -458,7 +495,7 @@ function textboxHandler(page, textbox, index, container) {
           },
         ],
         [
-          { string: "I don't mean to ramble", speed: speeds.slow },
+          { string: "I don't mean to ramble", speed: speeds.normal },
           { string: "...", speed: speeds.pause },
           {
             string:
@@ -487,6 +524,8 @@ function textboxHandler(page, textbox, index, container) {
         ],
       ];
   }
+
+  txtRevealing = true;
 
   if (index > textLines.length - 1) {
     removeAllCharacters();
