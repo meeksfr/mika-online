@@ -515,7 +515,7 @@ function textboxHandler(page, textbox, index, container) {
             string: "resume",
             speed: speeds.slow,
             classes: ["red"],
-            link: "https://drive.google.com/file/d/1097t3ErJHGjzNc_1MqVxruFfIsMZZW-K/view?usp=sharing",
+            link: "https://drive.google.com/file/d/1B2BGjiBPxvsRgecT2TbhPQVINe13QSF8/view?usp=sharing",
           },
           {
             string: ". Thank you again for spending your time with me!!",
