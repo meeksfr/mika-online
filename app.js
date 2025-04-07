@@ -515,7 +515,7 @@ function textboxHandler(page, textbox, index, container) {
             string: "resume",
             speed: speeds.slow,
             classes: ["red"],
-            link: "https://drive.google.com/file/d/1B2BGjiBPxvsRgecT2TbhPQVINe13QSF8/view?usp=sharing",
+            link: "/resources/Mika_Sustar_Resume.pdf",
           },
           {
             string: ". Thank you again for spending your time with me!!",
